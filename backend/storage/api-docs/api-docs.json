@@ -1,0 +1,134 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "HyperSwipe API",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost/api",
+            "description": "Local"
+        },
+        {
+            "url": "/api"
+        }
+    ],
+    "paths": {
+        "/api/people/{id}/like": {
+            "post": {
+                "tags": [
+                    "Likes"
+                ],
+                "summary": "Like a person",
+                "operationId": "likePerson",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Person ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Person liked successfully"
+                    },
+                    "404": {
+                        "description": "Person not found"
+                    }
+                }
+            }
+        },
+        "/api/people/{id}/dislike": {
+            "post": {
+                "tags": [
+                    "Likes"
+                ],
+                "summary": "Dislike a person",
+                "operationId": "dislikePerson",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Person ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Person disliked successfully"
+                    },
+                    "404": {
+                        "description": "Person not found"
+                    }
+                }
+            }
+        },
+        "/api/liked": {
+            "get": {
+                "tags": [
+                    "Likes"
+                ],
+                "summary": "List liked people",
+                "operationId": "likedList",
+                "responses": {
+                    "200": {
+                        "description": "Liked people retrieved successfully"
+                    }
+                }
+            }
+        },
+        "/api/people": {
+            "get": {
+                "tags": [
+                    "People"
+                ],
+                "summary": "List available people to swipe on",
+                "operationId": "listPeople",
+                "parameters": [
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "description": "Number of people per page",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": 10
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page number",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": 1
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Paginated people list"
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Likes",
+            "description": "Likes"
+        },
+        {
+            "name": "People",
+            "description": "People"
+        }
+    ]
+}
