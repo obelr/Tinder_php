@@ -1,5 +1,8 @@
 # Nixpacks Configuration for Laravel
-# This ensures PHP and Composer are installed before build
+# This file MUST be in the root directory that Railway builds from
+
+[providers]
+php = "8.2"
 
 [phases.setup]
 nixPkgs = ["php82", "composer"]
