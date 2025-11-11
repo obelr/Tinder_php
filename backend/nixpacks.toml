@@ -9,7 +9,8 @@ cmds = ["composer install --no-dev --optimize-autoloader --no-interaction --pref
 cmds = [
   "php artisan config:clear",
   "php artisan cache:clear",
-  "php artisan l5-swagger:generate"
+  "php artisan l5-swagger:generate",
+  "php scripts/fix-swagger-json.php"
 ]
 
 [start]
