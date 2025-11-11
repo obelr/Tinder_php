@@ -30,7 +30,30 @@ class PeopleController extends Controller
         responses: [
             new OA\Response(
                 response: 200,
-                description: 'Paginated people list'
+                description: 'Paginated people list',
+                content: new OA\JsonContent(
+                    type: 'object',
+                    properties: [
+                        'current_page' => new OA\Property(property: 'current_page', type: 'integer'),
+                        'data' => new OA\Property(
+                            property: 'data',
+                            type: 'array',
+                            items: new OA\Items(
+                                type: 'object',
+                                properties: [
+                                    'id' => new OA\Property(property: 'id', type: 'integer'),
+                                    'name' => new OA\Property(property: 'name', type: 'string'),
+                                    'age' => new OA\Property(property: 'age', type: 'integer'),
+                                    'pictures' => new OA\Property(property: 'pictures', type: 'array', items: new OA\Items(type: 'string')),
+                                    'location' => new OA\Property(property: 'location', type: 'string'),
+                                    'likes_count' => new OA\Property(property: 'likes_count', type: 'integer'),
+                                ]
+                            )
+                        ),
+                        'per_page' => new OA\Property(property: 'per_page', type: 'integer'),
+                        'total' => new OA\Property(property: 'total', type: 'integer'),
+                    ]
+                )
             )
         ]
     )]

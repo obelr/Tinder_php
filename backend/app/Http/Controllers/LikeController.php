@@ -19,7 +19,17 @@ class LikeController extends Controller
             new OA\PathParameter(name: 'id', description: 'Person ID', required: true, schema: new OA\Schema(type: 'integer')),
         ],
         responses: [
-            new OA\Response(response: 200, description: 'Person liked successfully'),
+            new OA\Response(
+                response: 200,
+                description: 'Person liked successfully',
+                content: new OA\JsonContent(
+                    type: 'object',
+                    properties: [
+                        'message' => new OA\Property(property: 'message', type: 'string'),
+                        'data' => new OA\Property(property: 'data', type: 'object'),
+                    ]
+                )
+            ),
             new OA\Response(response: 404, description: 'Person not found'),
         ]
     )]
@@ -62,7 +72,17 @@ class LikeController extends Controller
             new OA\PathParameter(name: 'id', description: 'Person ID', required: true, schema: new OA\Schema(type: 'integer')),
         ],
         responses: [
-            new OA\Response(response: 200, description: 'Person disliked successfully'),
+            new OA\Response(
+                response: 200,
+                description: 'Person disliked successfully',
+                content: new OA\JsonContent(
+                    type: 'object',
+                    properties: [
+                        'message' => new OA\Property(property: 'message', type: 'string'),
+                        'data' => new OA\Property(property: 'data', type: 'object'),
+                    ]
+                )
+            ),
             new OA\Response(response: 404, description: 'Person not found'),
         ]
     )]
@@ -100,7 +120,30 @@ class LikeController extends Controller
         summary: 'List liked people',
         tags: ['Likes'],
         responses: [
-            new OA\Response(response: 200, description: 'Liked people retrieved successfully'),
+            new OA\Response(
+                response: 200,
+                description: 'Liked people retrieved successfully',
+                content: new OA\JsonContent(
+                    type: 'object',
+                    properties: [
+                        'data' => new OA\Property(
+                            property: 'data',
+                            type: 'array',
+                            items: new OA\Items(
+                                type: 'object',
+                                properties: [
+                                    'id' => new OA\Property(property: 'id', type: 'integer'),
+                                    'name' => new OA\Property(property: 'name', type: 'string'),
+                                    'age' => new OA\Property(property: 'age', type: 'integer'),
+                                    'pictures' => new OA\Property(property: 'pictures', type: 'array', items: new OA\Items(type: 'string')),
+                                    'location' => new OA\Property(property: 'location', type: 'string'),
+                                    'likes_count' => new OA\Property(property: 'likes_count', type: 'integer'),
+                                ]
+                            )
+                        ),
+                    ]
+                )
+            ),
         ]
     )]
     public function likedList(Request $request)
