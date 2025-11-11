@@ -6,7 +6,6 @@ use OpenApi\Attributes as OA;
 
 #[OA\Info(title: 'HyperSwipe API', version: '1.0.0')]
 #[OA\Server(url: 'https://tinderphp-production.up.railway.app', description: 'Production')]
-#[OA\Server(url: 'http://localhost:8000', description: 'Local')]
 abstract class Controller
 {
 }
