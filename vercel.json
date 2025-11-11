@@ -1,0 +1,14 @@
+{
+  "buildCommand": "cd tinder-clone && npm install && npm run build",
+  "outputDirectory": "tinder-clone/dist",
+  "devCommand": "cd tinder-clone && npx expo start --web",
+  "installCommand": "cd tinder-clone && npm install",
+  "framework": null,
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
+
