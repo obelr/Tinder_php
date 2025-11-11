@@ -1,0 +1,12 @@
+# Railway Nixpacks Configuration
+# This file tells Railway to use PHP
+
+[php]
+version = "8.2"
+
+[composer]
+install = "--no-dev --optimize-autoloader"
+
+[deploy]
+start = "php artisan serve --host=0.0.0.0 --port=$PORT"
+
