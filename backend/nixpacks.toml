@@ -1,12 +1,11 @@
-# Railway Nixpacks Configuration
-# This file tells Railway to use PHP
+# Nixpacks Configuration for Laravel
+# This ensures PHP and Composer are installed before build
 
-[php]
-version = "8.2"
+[phases.setup]
+nixPkgs = ["php82", "composer"]
 
-[composer]
-install = "--no-dev --optimize-autoloader"
+[phases.install]
+cmds = ["composer install --no-dev --optimize-autoloader --no-interaction"]
 
-[deploy]
-start = "php artisan serve --host=0.0.0.0 --port=$PORT"
-
+[start]
+cmd = "php artisan serve --host=0.0.0.0 --port=$PORT"
