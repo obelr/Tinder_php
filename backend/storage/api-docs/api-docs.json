@@ -10,7 +10,7 @@
             "description": "Local"
         },
         {
-            "url": "/api"
+            "url": "/"
         }
     ],
     "paths": {
