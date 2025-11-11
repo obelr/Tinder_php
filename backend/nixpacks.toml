@@ -6,7 +6,11 @@
 cmds = ["composer install --no-dev --optimize-autoloader --no-interaction --prefer-dist"]
 
 [phases.build]
-cmds = []  # Skip build phase (no npm build needed)
+cmds = [
+  "php artisan config:clear",
+  "php artisan cache:clear",
+  "php artisan l5-swagger:generate"
+]
 
 [start]
 cmd = "php artisan serve --host=0.0.0.0 --port=$PORT"
