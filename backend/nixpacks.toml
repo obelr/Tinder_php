@@ -1,5 +1,5 @@
 # Nixpacks Configuration for Laravel
-# This file MUST be in the root directory that Railway builds from
+# Railway will use this when no Dockerfile exists
 
 [providers]
 php = "8.2"
