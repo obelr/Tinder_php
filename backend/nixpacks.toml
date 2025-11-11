@@ -1,8 +1,12 @@
 # Nixpacks Configuration for Laravel
 # Railway will auto-detect PHP and Composer from composer.json
+# Skip npm build phase (not needed for Laravel backend)
 
 [phases.install]
 cmds = ["composer install --no-dev --optimize-autoloader --no-interaction --prefer-dist"]
+
+[phases.build]
+cmds = []  # Skip build phase (no npm build needed)
 
 [start]
 cmd = "php artisan serve --host=0.0.0.0 --port=$PORT"
