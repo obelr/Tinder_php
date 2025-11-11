@@ -1,0 +1,45 @@
+# Render Configuration File
+# This file tells Render this is a PHP service
+
+services:
+  - type: web
+    name: hyperswipe-backend
+    runtime: php
+    buildCommand: composer install --no-dev --optimize-autoloader
+    startCommand: php artisan serve --host=0.0.0.0 --port=$PORT
+    envVars:
+      - key: APP_NAME
+        value: HyperSwipe
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: false
+      - key: DB_CONNECTION
+        value: pgsql
+      - key: DB_HOST
+        value: ep-flat-glitter-ahwpqw9o-pooler.c-3.us-east-1.aws.neon.tech
+      - key: DB_PORT
+        value: 5432
+      - key: DB_DATABASE
+        value: Hyper
+      - key: DB_USERNAME
+        value: neondb_owner
+      - key: DB_PASSWORD
+        value: npg_BIR4UwF2cPqH
+      - key: DB_SSLMODE
+        value: require
+      - key: MAIL_MAILER
+        value: smtp
+      - key: MAIL_HOST
+        value: sandbox.smtp.mailtrap.io
+      - key: MAIL_PORT
+        value: 2525
+      - key: MAIL_USERNAME
+        value: 59e9a5935ec327
+      - key: MAIL_PASSWORD
+        value: 984f0837394d92
+      - key: MAIL_ENCRYPTION
+        value: tls
+      - key: L5_SWAGGER_BASE_PATH
+        value: /
+
