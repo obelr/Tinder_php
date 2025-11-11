@@ -1,8 +1,5 @@
 # Nixpacks Configuration for Laravel
-# Railway will use this when no Dockerfile exists
-
-[phases.setup]
-nixPkgs = ["php82", "composer"]
+# Railway will auto-detect PHP and Composer from composer.json
 
 [phases.install]
 cmds = ["composer install --no-dev --optimize-autoloader --no-interaction --prefer-dist"]
