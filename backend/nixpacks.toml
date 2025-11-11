@@ -1,9 +1,6 @@
 # Nixpacks Configuration for Laravel
 # Railway will use this when no Dockerfile exists
 
-[providers]
-php = "8.2"
-
 [phases.setup]
 nixPkgs = ["php82", "composer"]
 
