@@ -1,5 +1,17 @@
 # HyperSwipe – Tinder-Style MVP
 
+For demoo use Swagger doc 
+     https://tinderphp-production.up.railway.app/api/documentation#/
+For the mobile Scan this with Expo Go installed on you Mobile device 
+
+
+<img width="234" height="230" alt="Screenshot 2025-11-11 at 8 58 17 PM" src="https://github.com/user-attachments/assets/61c6fb81-e2d2-44ff-80dc-8bdd03f17a22" />
+
+
+
+
+
+
 This workspace contains a Laravel 11 backend and an Expo React Native frontend that together deliver a Tinder-style experience: swipe cards, like/dislike flows, liked list, swagger docs, and an automated popularity alert.
 
 ## Project Structure
